@@ -9,6 +9,22 @@
 └── Makefile            # 一键编译 
     README.md           # 说明文档 -->
 
+
+<!--新增Cookie和Session模块
+ http-server-cpp/
+├── include/
+│   ├── HttpServer.h      // 你原来的文件，我帮你改几行
+│   ├── CookieUtil.h      // 新增：Cookie 工具类
+│   └── SessionManager.h  // 新增：Session 管理器
+├── src/
+│   ├── HttpServer.cpp    // 你原来的文件，核心修改 handleClient 函数
+│   ├── main.cpp          // 不变
+│   ├── CookieUtil.cpp    // 新增：Cookie 工具实现
+│   └── SessionManager.cpp// 新增：Session 管理器实现
+├── web/
+│   ├── index.html        // 不变（也可以删掉，我们直接生成首页）
+│   └── login.html        // 新增：登录页面
+└── Makefile              // 不用改，原来的就可以编译所有文件 -->
 # C++ 原生HTTP服务器
 - 环境：Linux远端服务器
 - 无第三方依赖，纯Socket实现

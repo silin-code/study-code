@@ -13,8 +13,8 @@ private:
     bool initSocket();
     //自动获取服务器公网IP
     std::string getPublicIP();
-    //前后端分离，读取前端html文件，构造响应
-    std::string readFrontEndFile();
+    //前后端分离，读取前端html文件，构造响应//版本2需要参数，版本1不需要
+    std::string readFrontEndFile(const std::string& filename);
     //解析并处理客户端请求
     void handleClient(int client_fd);
 
