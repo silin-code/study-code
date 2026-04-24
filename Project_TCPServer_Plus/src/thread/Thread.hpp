@@ -18,17 +18,17 @@ public:
     //1创建分离线程(主线程退出,子线程自动结束)
     //适合IO处理,业务逻辑,不阻塞主进程
     template<typename Func,typename... Args>
-    static void creatDetach(Func&& func,Args&&... args);
+    static void createDetach(Func&& func,Args&&... args);
 
     //2创建等待线程(主线程等待子线程结束)
     //适合:只需要等待任务完成的场景
     template<typename Func,typename... Args>
-    static void creatJoin(Func&& func,Args&&... args);
+    static void createJoin(Func&& func,Args&&... args);
 };
 
 //模板函数实现(模板函数必须放在头文件中)
 template<typename Func,typename... Args>
-void Thread::creatDetach(Func&& func, Args&&... args) {
+void Thread::createDetach(Func&& func, Args&&... args) {
     //创建线程对象,传入函数和参数
     std::thread t(std::forward<Func>(func),std::forward<Args>(args)...);
     //分离线程(主线程退出,子线程自动结束)
@@ -37,7 +37,7 @@ void Thread::creatDetach(Func&& func, Args&&... args) {
 }
 
 template<typename Func,typename... Args>
-void Thread::creatJoin(Func&& func, Args&&... args) {
+void Thread::createJoin(Func&& func, Args&&... args) {
     //创建线程对象,传入函数和参数
     std::thread t(std::forward<Func>(func),std::forward<Args>(args)...);
     //等待线程结束(主线程等待子线程完成)

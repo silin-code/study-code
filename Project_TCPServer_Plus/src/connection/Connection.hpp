@@ -8,6 +8,8 @@
 #include <string>
 #include <cstring>
 #include <sys/socket.h>
+#include <unordered_map>//汉译英扩展
+#include <algorithm>
 
 
 //连接状态:已连接,关闭
@@ -15,6 +17,8 @@ enum ConnStatus{
     CONNECTED,//已连接
     CLOSED//已关闭
 };
+
+extern std::unordered_map<std::string,std::string> g_dict;
 
 //客户端连接管理类
 class Connection{
@@ -37,4 +41,15 @@ private:
     int m_clientfd;//客户端连接的fd
     ConnStatus m_status;//连接状态
     char m_buffer[BUFFER_SIZE];//数据缓冲区 
+
+    //辅助:把字符串转成小写
+    std::string toLower(const std::string& s)
+    {
+        std::string res=s;
+        for(int i=0;i<s.size();i++)
+        {
+            res[i]=tolower(s[i]);
+        }
+        return res;
+    }
 };
