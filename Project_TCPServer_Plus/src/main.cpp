@@ -14,6 +14,7 @@
 //Reactor + Select
 #include "reactor/EventLoop.hpp"
 #include "reactor/SelectLoop.hpp"
+#include "reactor/PollLoop.hpp"
 
 //线程文件
 #include "thread/Thread.hpp"
@@ -26,7 +27,7 @@
 std::vector<std::shared_ptr<Connection>> g_connections;
 
 // 初始化Select
-SelectLoop loop;
+PollLoop loop;
 
 void runloop()
 {
@@ -38,7 +39,7 @@ void runloop()
 int main()
 {
     LOG_INFO("===================================");
-    LOG_INFO("    TCP 服务器启动(select版) %p", pthread_self());
+    LOG_INFO("    TCP 服务器启动 %p", pthread_self());
     LOG_INFO("===================================");
 
     // 初始化监听Socket
