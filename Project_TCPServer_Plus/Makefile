@@ -20,7 +20,9 @@ SRC_FILES = \
 	src/net/TcpSocket.cpp \
 	src/connection/Connection.cpp \
 	src/reactor/EventLoop.cpp \
+	src/reactor/SelectLoop.cpp\
 	src/reactor/PollLoop.cpp \
+	src/reactor/EpollLoop.cpp \
 	src/thread/Thread.cpp
 
 # 编译命令：生成可执行文件

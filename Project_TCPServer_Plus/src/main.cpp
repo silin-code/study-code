@@ -11,10 +11,11 @@
 //连接管理模块
 #include "connection/Connection.hpp"
 
-//Reactor + Select
+//Reactor + Select + Poll + Epoll
 #include "reactor/EventLoop.hpp"
 #include "reactor/SelectLoop.hpp"
 #include "reactor/PollLoop.hpp"
+#include "reactor/EpollLoop.hpp"
 
 //线程文件
 #include "thread/Thread.hpp"
@@ -27,7 +28,7 @@
 std::vector<std::shared_ptr<Connection>> g_connections;
 
 // 初始化Select
-PollLoop loop;
+EpollLoop loop;
 
 void runloop()
 {
